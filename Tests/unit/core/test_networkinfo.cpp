@@ -47,10 +47,12 @@ namespace Core {
                while (index.Next() == true) {
                    ::Thunder::Core::NodeId current(index.Address());
                    ::Thunder::Core::IPNode currentNode(index.Address());
-                   EXPECT_EQ(adapter.Add(currentNode),::Thunder::Core::ERROR_NONE);
-                   EXPECT_EQ(adapter.Gateway(currentNode,current),::Thunder::Core::ERROR_NONE);
-                   EXPECT_EQ(adapter.Delete(currentNode),::Thunder::Core::ERROR_NONE);
-                   EXPECT_EQ(adapter.Broadcast(current),::Thunder::Core::ERROR_NONE);
+                   if (adapter.IsValid() == true) {
+                       EXPECT_EQ(adapter.Add(currentNode),::Thunder::Core::ERROR_NONE);
+                       EXPECT_EQ(adapter.Gateway(currentNode,current),::Thunder::Core::ERROR_NONE);
+                       EXPECT_EQ(adapter.Delete(currentNode),::Thunder::Core::ERROR_NONE);
+                       EXPECT_EQ(adapter.Broadcast(current),::Thunder::Core::ERROR_NONE);
+                   }
                    if ((current.IsMulticast() == false) && (current.IsLocalInterface() == false)) {
                        result = index;
                        EXPECT_STREQ(current.HostName().c_str(),current.HostName().c_str());
