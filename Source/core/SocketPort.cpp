@@ -1253,7 +1253,7 @@ namespace WPEFramework {
                 result = false;
             }
             else {
-                printf("[L.1256]-Inside - closed() - m_Socket - %d " , m_Socket);
+                printf("[L.1256]-Inside - closed() - m_Socket - %d \n" , m_Socket);
                 DestroySocket(m_Socket);
                 ResourceMonitor::Instance().Unregister(*this);
                 // Remove socket descriptor for UNIX domain datagram socket.
