@@ -407,6 +407,7 @@ namespace WPEFramework {
 
         SocketPort::~SocketPort()
         {
+            printf("Destructor SocketPort <%p>, m_Socket - %d\n", (this) , m_Socket);
             TRACE_L5("Destructor SocketPort <%p>", (this));
 
             // Make sure the socket is closed before you destruct. Otherwise
@@ -1252,6 +1253,7 @@ namespace WPEFramework {
                 result = false;
             }
             else {
+                printf("[L.1256]-Inside - closed() - m_Socket - %d " , m_Socket);
                 DestroySocket(m_Socket);
                 ResourceMonitor::Instance().Unregister(*this);
                 // Remove socket descriptor for UNIX domain datagram socket.
