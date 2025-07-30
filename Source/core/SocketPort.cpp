@@ -273,7 +273,7 @@ namespace WPEFramework {
 #ifdef __WINDOWS__
             ::closesocket(socket);
 #endif
-            printf("DestroySocket - Socket %u destroyed\n", static_cast<uint32_t>(socket));
+            printf("ESDBG-DestroySocket - Socket %u destroyed\n", static_cast<uint32_t>(socket));
             TRACE_L3("Socket %u destroyed", static_cast<uint32_t>(socket));
 
             socket = INVALID_SOCKET;
@@ -407,7 +407,7 @@ namespace WPEFramework {
 
         SocketPort::~SocketPort()
         {
-            printf("Destructor SocketPort <%p>, m_Socket - %d\n", (this) , m_Socket);
+            printf("ESDBG-Destructor SocketPort <%p>, m_Socket - %d\n", (this) , m_Socket);
             TRACE_L5("Destructor SocketPort <%p>", (this));
 
             // Make sure the socket is closed before you destruct. Otherwise
@@ -1253,7 +1253,7 @@ namespace WPEFramework {
                 result = false;
             }
             else {
-                printf("[L.1256]-Inside - closed() - m_Socket - %d \n" , m_Socket);
+                printf("ESDBG-[L.1256]-Inside - closed() - m_Socket - %d \n" , m_Socket);
                 DestroySocket(m_Socket);
                 ResourceMonitor::Instance().Unregister(*this);
                 // Remove socket descriptor for UNIX domain datagram socket.
