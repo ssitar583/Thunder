@@ -273,7 +273,7 @@ namespace WPEFramework {
 #ifdef __WINDOWS__
             ::closesocket(socket);
 #endif
-
+            printf("DestroySocket - Socket %u destroyed\n", static_cast<uint32_t>(socket));
             TRACE_L3("Socket %u destroyed", static_cast<uint32_t>(socket));
 
             socket = INVALID_SOCKET;
