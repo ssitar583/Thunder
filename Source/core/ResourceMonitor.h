@@ -236,7 +236,7 @@ namespace Core {
 
             if (index != _resourceList.end()) {
                 *index = nullptr;
-                printf("ResourceMonitor-Unregistered Socket\n");
+                printf("ESDBG-ResourceMonitor-Unregistered Socket\n");
                 Break();
             }
             _adminLock.Unlock();
