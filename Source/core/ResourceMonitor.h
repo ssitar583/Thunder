@@ -236,9 +236,9 @@ namespace Core {
 
             if (index != _resourceList.end()) {
                 *index = nullptr;
+                printf("ResourceMonitor-Unregistered Socket\n");
                 Break();
             }
-
             _adminLock.Unlock();
         }
         inline void Break()
